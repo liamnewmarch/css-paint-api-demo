@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<style>
+  .hello-world {
+    --background-color: red;
+    --background-padding: 1em;
+    background-image: paint(hello-world);
+    border: 1px solid black;
+    height: 200px;
+    width: 300px;
+  }
+</style>
+<div class="hello-world"></div>
+<script>
+  CSS.registerProperty({
+    name: '--background-color',
+    syntax: '<color>',
+    initialValue: 'blue',
+    inherits: false,
+  });
+
+  CSS.registerProperty({
+    name: '--background-padding',
+    syntax: '<length>',
+    initialValue: 0,
+    inherits: false,
+  });
+
+  CSS.paintWorklet.addModule('hello-world.js');
+</script>
